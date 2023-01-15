@@ -1,7 +1,11 @@
 {
-  "name": "next-test-app",
+  "name": "nextjs-typescript-antd-less-boilerplate",
+  "description": "nextjs-typescript-antd-less-boilerplate",
   "version": "0.1.0",
-  "private": true,
+  "repository": "https://github.com/tjnk24/NextJsTypescriptAntdLessBoilerplate.git",
+  "author": "tjnk24 <tjnk24@gmail.com>",
+  "license": "MIT",
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
