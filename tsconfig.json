@@ -37,7 +37,8 @@
       "__commonActions": ["src/commonActions/index.ts"],
       "__routes": ["./src/routes.ts"],
       "__config": ["./src/config.ts"],
-    }
+    },
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "include": [
     "*.js",
@@ -51,5 +52,5 @@
     "node_modules/@types",
   ],
   "compileOnSave": false,
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
 }
