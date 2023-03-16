@@ -34,7 +34,7 @@
       "__reducers*": ["./src/reducers/index.ts"],
       "__reducers/*": ["./src/reducers/*"],
       "__selectors/*": ["./src/selectors/*"],
-      "__commonActions": ["src/commonActions/index.ts"],
+      "__commonActions": ["src/commonActions.ts"],
       "__routes": ["./src/routes.ts"],
       "__config": ["./src/config.ts"],
     },
