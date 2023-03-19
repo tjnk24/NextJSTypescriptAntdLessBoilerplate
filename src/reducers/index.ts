@@ -1,15 +1,13 @@
-import {connectRouter} from 'connected-react-router';
-
-import {history, RouterHistory} from '__store/history';
+import {routerReducer, RouterState} from 'connected-next-router';
 
 import {TestGlobalCounterSlice, testGlobalCounterSlice} from './testGlobalCounterSlice';
 
-export type BaseStore = {
-    router: RouterHistory;
+export type BaseState = {
+    router: RouterState;
     testGlobalCounter: TestGlobalCounterSlice;
 }
 
 export const reducers = {
-    router: connectRouter(history),
+    router: routerReducer,
     testGlobalCounter: testGlobalCounterSlice.reducer,
 };

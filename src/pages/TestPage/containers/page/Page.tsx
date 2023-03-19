@@ -2,8 +2,8 @@ import {MinusOutlined, PlusOutlined} from '@ant-design/icons';
 import {Typography, Button} from 'antd';
 import {useSelector} from 'react-redux';
 
-import {commonActions} from '__commonActions';
 import {testGlobalCounterCountSelector} from '__selectors/testGlobalCounterSelectors';
+import {commonActions} from '__store/storeService';
 
 import {container, test} from './Page.module.less';
 
@@ -37,7 +37,6 @@ const Page = () => {
             </div>
 
             <div className={container}>
-
                 <span className={test}>test page</span>
             </div>
         </>

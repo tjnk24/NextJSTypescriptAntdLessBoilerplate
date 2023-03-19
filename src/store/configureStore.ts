@@ -1,38 +1,61 @@
 import {
     AnyAction,
+    CombinedState,
     combineReducers,
     configureStore,
 } from '@reduxjs/toolkit';
-import {routerMiddleware} from 'connected-react-router';
-import {createWrapper, HYDRATE} from 'next-redux-wrapper';
+import {createRouterMiddleware, initialRouterState} from 'connected-next-router';
+import {AppContext} from 'next/app';
+import Router from 'next/router';
+import {
+    Context,
+    createWrapper,
+    HYDRATE,
+} from 'next-redux-wrapper';
 import {createLogger} from 'redux-logger';
 
-import {history} from '__store/history';
+import {BaseState, reducers} from '__reducers';
 
-import reducerRegistry from './reducerRegistry';
+import {CommonStore} from './types';
 
-export const combinedReducer = combineReducers(reducerRegistry.reducers);
+export const rootReducer = combineReducers(reducers);
 
-const rootReducer = (state: ReturnType<typeof combinedReducer>, action: AnyAction) => {
-    return action.type === HYDRATE
-        ? {...state, ...action.payload}
-        : combinedReducer(state, action);
+const reducer = (state: CombinedState<BaseState>, action: AnyAction) => {
+    if (action.type === HYDRATE) {
+        const nextState: CommonStore = {
+            ...state,
+            ...action.payload,
+        };
+
+        if (window && state?.router) {
+            nextState.router = state.router;
+        }
+
+        return nextState;
+    }
+
+    return rootReducer(state, action);
 };
 
-const logger = createLogger({collapsed: true});
+export const initStore = (context: Context) => {
+    const {asPath} = (context as AppContext)?.ctx || Router?.router || {};
 
-export const store = configureStore({
-    reducer: rootReducer,
-    middleware: [
-        routerMiddleware(history),
-        logger,
-    ],
-});
+    let preloadedState: Pick<BaseState, 'router'>;
 
-export const wrapper = createWrapper(() => store);
+    if (asPath) {
+        preloadedState = {
+            router: initialRouterState(asPath),
+        };
+    }
 
-reducerRegistry.setChangeListener(reducers => {
-    store.replaceReducer(combineReducers(reducers));
+    return configureStore({
+        reducer,
+        preloadedState,
+        middleware: [
+            createRouterMiddleware(),
+            createLogger({collapsed: true}),
+        ],
+    });
+};
 
-    store.dispatch({type: '@@redux/RECOMBINE'});
-});
+export const wrapper = createWrapper(initStore);

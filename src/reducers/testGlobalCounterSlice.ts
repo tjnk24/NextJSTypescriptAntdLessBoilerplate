@@ -12,8 +12,6 @@ export const testGlobalCounterSlice = createSlice({
     name: 'testGlobalCounter',
     initialState,
     reducers: {
-        setCount: (_state, {payload}: PayloadAction<number>) => ({
-            count: payload,
-        }),
+        setCount: (_state, {payload}: PayloadAction<number>) => ({count: payload}),
     },
 });

@@ -1,9 +1,8 @@
-import {routerActions} from 'connected-react-router';
+import {routerActions} from 'connected-next-router';
 
 import {testGlobalCounterSlice} from '__reducers/testGlobalCounterSlice';
-import {bindActions} from '__store/bindActions';
 
-export const commonActions = bindActions({
+export const actions = {
     router: routerActions,
     testGlobalCounter: testGlobalCounterSlice.actions,
-});
+};
