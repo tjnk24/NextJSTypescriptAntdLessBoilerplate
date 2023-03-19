@@ -3,19 +3,16 @@ import {
     CombinedState,
     combineReducers,
     configureStore,
+    Store,
 } from '@reduxjs/toolkit';
 import {createRouterMiddleware, initialRouterState} from 'connected-next-router';
-import {AppContext} from 'next/app';
-import Router from 'next/router';
-import {
-    Context,
-    createWrapper,
-    HYDRATE,
-} from 'next-redux-wrapper';
+import {AppProps} from 'next/app';
+import {createWrapper, HYDRATE} from 'next-redux-wrapper';
 import {createLogger} from 'redux-logger';
 
 import {BaseState, reducers} from '__reducers';
 
+import {initialize, store as globalStore} from './storeService';
 import {CommonStore} from './types';
 
 export const rootReducer = combineReducers(reducers);
@@ -37,25 +34,31 @@ const reducer = (state: CombinedState<BaseState>, action: AnyAction) => {
     return rootReducer(state, action);
 };
 
-export const initStore = (context: Context) => {
-    const {asPath} = (context as AppContext)?.ctx || Router?.router || {};
+export const useConfiguredStore = (appProps: Omit<AppProps, 'Component'>) => {
+    const wrapper = createWrapper<Store<BaseState>>(() => {
+        const asPath = appProps?.router?.asPath;
 
-    let preloadedState: Pick<BaseState, 'router'>;
+        let preloadedState: Partial<BaseState>;
 
-    if (asPath) {
-        preloadedState = {
-            router: initialRouterState(asPath),
-        };
-    }
+        if (asPath) {
+            preloadedState = {
+                router: initialRouterState(asPath),
+            };
+        }
 
-    return configureStore({
-        reducer,
-        preloadedState,
-        middleware: [
-            createRouterMiddleware(),
-            createLogger({collapsed: true}),
-        ],
+        return configureStore({
+            reducer,
+            preloadedState,
+            middleware: [
+                createRouterMiddleware(),
+                createLogger({collapsed: true}),
+            ],
+        });
     });
-};
 
-export const wrapper = createWrapper(initStore);
+    const {store, props} = wrapper.useWrappedStore(appProps);
+
+    !globalStore && initialize(store);
+
+    return {store, props};
+};

@@ -2,18 +2,15 @@ import {ConnectedRouter} from 'connected-next-router';
 import type {AppProps} from 'next/app';
 import {Provider} from 'react-redux';
 
-import {wrapper} from '__store/configureStore';
-import {initialize, store} from '__store/storeService';
+import {useConfiguredStore} from '__store/configureStore';
 
 import TopNavigation from '../top-navigation';
 
-const Page = ({Component, ...rest}: AppProps) => {
-    const {store: wrapperStore, props} = wrapper.useWrappedStore(rest);
-
-    !store && initialize(wrapperStore);
+const Page = ({Component, ...propsRest}: AppProps) => {
+    const {props, store} = useConfiguredStore(propsRest);
 
     return (
-        <Provider store={wrapperStore}>
+        <Provider store={store}>
             <ConnectedRouter>
                 <TopNavigation/>
 
