@@ -1,7 +1,7 @@
+import isEmpty from 'lodash/isEmpty';
 import queryString from 'query-string';
 
 import {commonActions} from '__store/storeService';
-import {isEmpty} from '__utils/isEmpty';
 
 import {RouterPushData} from './types';
 
