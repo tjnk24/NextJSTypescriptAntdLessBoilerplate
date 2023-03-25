@@ -10,12 +10,13 @@ import {AppProps} from 'next/app';
 import {createWrapper, HYDRATE} from 'next-redux-wrapper';
 import {createLogger} from 'redux-logger';
 
-import {BaseState, reducers} from '__reducers';
+import {BaseState} from '__reducers';
 
-import {initialize, store as globalStore} from './storeService';
+import reducerRegistry from './reducerRegistry';
+import {storeService} from './storeService';
 import {CommonStore} from './types';
 
-export const rootReducer = combineReducers(reducers);
+export const rootReducer = combineReducers(reducerRegistry.reducers);
 
 const reducer = (state: CombinedState<BaseState>, action: AnyAction) => {
     if (action.type === HYDRATE) {
@@ -58,7 +59,7 @@ export const useConfiguredStore = (appProps: Omit<AppProps, 'Component'>) => {
 
     const {store, props} = wrapper.useWrappedStore(appProps);
 
-    !globalStore && initialize(store);
+    !storeService.store && storeService.initialize(store);
 
     return {store, props};
 };

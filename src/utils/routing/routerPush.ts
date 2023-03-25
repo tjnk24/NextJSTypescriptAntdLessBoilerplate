@@ -1,12 +1,12 @@
 import isEmpty from 'lodash/isEmpty';
 import queryString from 'query-string';
 
-import {commonActions} from '__store/storeService';
+import {storeService} from '__store/storeService';
 
 import {RouterPushData} from './types';
 
 const push = (path: string) => {
-    commonActions.router.push(path);
+    storeService.commonActions.router.push(path);
 };
 
 export const routerPush = <T>(

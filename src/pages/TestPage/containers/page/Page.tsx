@@ -1,9 +1,10 @@
 import {MinusOutlined, PlusOutlined} from '@ant-design/icons';
 import {Typography, Button} from 'antd';
+import {useEffect} from 'react';
 import {useSelector} from 'react-redux';
 
 import {testGlobalCounterCountSelector} from '__selectors/testGlobalCounterSelectors';
-import {commonActions} from '__store/storeService';
+import {storeService} from '__store/storeService';
 
 import {container, test} from './Page.module.less';
 
@@ -11,12 +12,19 @@ const Page = () => {
     const globalCount = useSelector(testGlobalCounterCountSelector);
 
     const onIncrementClick = () => {
-        commonActions.testGlobalCounter.setCount(globalCount + 1);
+        storeService.commonActions.testGlobalCounter.setCount(globalCount + 1);
     };
 
     const onDecrementClick = () => {
-        commonActions.testGlobalCounter.setCount(globalCount - 1);
+        storeService.commonActions.testGlobalCounter.setCount(globalCount - 1);
     };
+
+    useEffect(() => {
+        console.log('mount');
+        return () => {
+            console.log('unmount');
+        };
+    }, []);
 
     return (
         <>
