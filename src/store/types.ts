@@ -1,6 +1,8 @@
+import {AxiosError} from 'axios';
+
 import {BaseState} from '__reducers';
 
-import {store} from './storeService';
+import {store} from './configureStore';
 
 export enum Status {
     Success = 'success',
@@ -15,3 +17,8 @@ export type StoreState<D> = {
 }
 
 export type CommonStore = ReturnType<typeof store.getState> & BaseState;
+
+export type ServerSideProps<T> = {
+    response?: T;
+    error?: AxiosError;
+}

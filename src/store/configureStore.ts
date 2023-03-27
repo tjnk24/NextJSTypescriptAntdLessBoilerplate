@@ -1,64 +1,32 @@
 import {
     AnyAction,
-    CombinedState,
     combineReducers,
     configureStore,
-    Store,
 } from '@reduxjs/toolkit';
-import {createRouterMiddleware, initialRouterState} from 'connected-next-router';
-import {AppProps} from 'next/app';
 import {createWrapper, HYDRATE} from 'next-redux-wrapper';
 import {createLogger} from 'redux-logger';
 
-import {BaseState, reducers} from '__reducers';
+import reducerRegistry from './reducerRegistry';
 
-import {initialize, store as globalStore} from './storeService';
-import {CommonStore} from './types';
+export const combinedReducer = combineReducers(reducerRegistry.reducers);
 
-export const rootReducer = combineReducers(reducers);
-
-const reducer = (state: CombinedState<BaseState>, action: AnyAction) => {
-    if (action.type === HYDRATE) {
-        const nextState: CommonStore = {
-            ...state,
-            ...action.payload,
-        };
-
-        if (window && state?.router) {
-            nextState.router = state.router;
-        }
-
-        return nextState;
-    }
-
-    return rootReducer(state, action);
+const rootReducer = (state: ReturnType<typeof combinedReducer>, action: AnyAction) => {
+    return action.type === HYDRATE
+        ? {...state, ...action.payload}
+        : combinedReducer(state, action);
 };
 
-export const useConfiguredStore = (appProps: Omit<AppProps, 'Component'>) => {
-    const wrapper = createWrapper<Store<BaseState>>(() => {
-        const asPath = appProps?.router?.asPath;
+export const store = configureStore({
+    reducer: rootReducer,
+    middleware: [
+        createLogger({collapsed: true}),
+    ],
+});
 
-        let preloadedState: Partial<BaseState>;
+export const wrapper = createWrapper(() => store);
 
-        if (asPath) {
-            preloadedState = {
-                router: initialRouterState(asPath),
-            };
-        }
+reducerRegistry.setChangeListener(reducers => {
+    store.replaceReducer(combineReducers(reducers));
 
-        return configureStore({
-            reducer,
-            preloadedState,
-            middleware: [
-                createRouterMiddleware(),
-                createLogger({collapsed: true}),
-            ],
-        });
-    });
-
-    const {store, props} = wrapper.useWrappedStore(appProps);
-
-    !globalStore && initialize(store);
-
-    return {store, props};
-};
+    store.dispatch({type: '@@redux/RECOMBINE'});
+});

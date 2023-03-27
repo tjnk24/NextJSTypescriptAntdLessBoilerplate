@@ -3,7 +3,7 @@ import {Typography, Button} from 'antd';
 import {useSelector} from 'react-redux';
 
 import {testGlobalCounterCountSelector} from '__selectors/testGlobalCounterSelectors';
-import {commonActions} from '__store/storeService';
+import {commonActions} from '__store/actions';
 
 import {container, test} from './Page.module.less';
 
