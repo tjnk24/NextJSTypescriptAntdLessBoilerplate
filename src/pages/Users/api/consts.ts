@@ -1,1 +1,1 @@
-export const API_ENDPOINT = '/usesrs';
+export const API_ENDPOINT = '/users';
