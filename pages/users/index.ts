@@ -1,3 +1,5 @@
-export {default} from '__pages/Users/containers/page';
+import Page, {getStaticProps} from '__pages/Users';
 
-export {getStaticProps} from '__pages/Users/containers/page/dataUtils';
+export {getStaticProps};
+
+export default Page;

@@ -1,1 +1,1 @@
-export {default} from '__pages/Index/containers/page';
+export {default} from '__pages/Index';

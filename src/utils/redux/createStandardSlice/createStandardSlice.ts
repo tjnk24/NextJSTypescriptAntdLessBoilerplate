@@ -15,10 +15,12 @@ export const createStandardSlice = <T>(sliceName: string) => {
                 ...state,
                 status: Status.Pending,
             }),
-            success: (_state, {payload}: PayloadAction<T>) => ({
-                status: Status.Success,
-                data: payload,
-            }),
+            success: (_state, {payload}: PayloadAction<T>) => {
+                return {
+                    status: Status.Success,
+                    data: payload,
+                };
+            },
             failed: (state, {payload}: PayloadAction<string>) => ({
                 ...state,
                 status: Status.Failed,

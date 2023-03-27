@@ -1,25 +1,22 @@
-import {storeService} from '__store/storeService';
+import {store} from '__store/configureStore';
 
-import {AsyncRequest, BaseActions} from './types';
+import {BaseActions} from './types';
+import {AsyncRequest} from '../../types';
 
 export const createLoader = <T>(actions: BaseActions<T>, apiRequest: AsyncRequest<T>) => {
     const {pending, success, failed} = actions;
 
     return async () => {
         try {
-            if (!storeService.store) {
-                return {} as T;
-            }
-
-            storeService.store.dispatch(pending());
+            store.dispatch(pending());
 
             const response = await apiRequest();
 
-            storeService.store.dispatch(success(response));
+            store.dispatch(success(response));
 
             return response;
         } catch (error: unknown | any) {
-            storeService.store.dispatch(failed(error?.message as string));
+            store.dispatch(failed(error?.message as string));
         }
     };
 };

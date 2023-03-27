@@ -1,12 +1,11 @@
 import isEmpty from 'lodash/isEmpty';
+import Router from 'next/router';
 import queryString from 'query-string';
-
-import {storeService} from '__store/storeService';
 
 import {RouterPushData} from './types';
 
 const push = (path: string) => {
-    storeService.commonActions.router.push(path);
+    void Router.push(path);
 };
 
 export const routerPush = <T>(

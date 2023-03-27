@@ -165,6 +165,9 @@ module.exports = {
         '@typescript-eslint/no-unsafe-return': 0,
         '@typescript-eslint/no-unsafe-member-access': 0,
 
+        //NextJs
+        '@next/next/no-document-import-in-page': 0,
+
         // React
         'react/jsx-no-useless-fragment': 2,
         'react/jsx-wrap-multilines': 'error',
