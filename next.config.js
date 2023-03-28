@@ -2,7 +2,7 @@ const LodashWebpackPlugin = require('lodash-webpack-plugin');
 const withLess = require('next-with-less');
 
 module.exports = withLess({
-    // reactStrictMode: true,
+    reactStrictMode: true,
     lessLoaderOptions: {
         lessOptions: {
             javascriptEnabled: true,
