@@ -8,6 +8,7 @@ export const getStaticProps = createServerLoader(apiInstance.get);
 
 export const onSuccess = ({response, error}: ServerSideProps<UsersApiGetResponse>) => {
     if (error) {
+        // eslint-disable-next-line no-console
         return console.log('error', error);
     }
 
