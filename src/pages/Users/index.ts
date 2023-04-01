@@ -1,5 +1,5 @@
-import {getStaticProps} from './containers/page/preload';
+import {getStaticProps} from './containers/users/preload';
 
 export {getStaticProps};
 
-export {default} from './containers/page';
+export {default} from './containers/users';

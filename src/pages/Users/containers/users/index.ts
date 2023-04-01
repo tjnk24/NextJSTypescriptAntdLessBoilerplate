@@ -1,8 +1,8 @@
 import {withReducer} from '__utils/redux/withReducer';
 
-import Page from './Page';
 import {onSuccess} from './preload';
+import Users from './Users';
 import {reducers} from '../../slices';
 import {UsersApiGetResponse} from '../../types';
 
-export default withReducer<UsersApiGetResponse>(Page, reducers, onSuccess);
+export default withReducer<UsersApiGetResponse>(Users, reducers, onSuccess);

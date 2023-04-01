@@ -5,7 +5,7 @@ import {COLUMNS} from './consts';
 import {tableDataSelector} from '../../selectors';
 import {UserDto} from '../../types';
 
-const Page = () => {
+const Users = () => {
     const tableData = useSelector(tableDataSelector);
 
     return (
@@ -19,4 +19,4 @@ const Page = () => {
     );
 };
 
-export default Page;
+export default Users;

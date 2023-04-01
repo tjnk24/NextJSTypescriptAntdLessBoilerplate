@@ -6,14 +6,14 @@ import {wrapper as storeWrapper} from '__store/configureStore';
 import Preloader from '../preloader';
 import TopNavigation from '../top-navigation';
 
-import {corePage, wrapper} from './Page.module.less';
+import {root, wrapper} from './Core.module.less';
 
-const Page = ({Component, ...propsRest}: AppProps) => {
+const Core = ({Component, ...propsRest}: AppProps) => {
     const {props, store} = storeWrapper.useWrappedStore(propsRest);
 
     return (
         <Provider store={store}>
-            <div className={corePage}>
+            <div className={root}>
                 <TopNavigation/>
 
                 <div className={wrapper}>
@@ -26,4 +26,4 @@ const Page = ({Component, ...propsRest}: AppProps) => {
     );
 };
 
-export default Page;
+export default Core;

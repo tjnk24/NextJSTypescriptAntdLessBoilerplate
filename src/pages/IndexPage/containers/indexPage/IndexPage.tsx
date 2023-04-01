@@ -1,6 +1,4 @@
-import React from 'react';
-
-const Page = () => {
+const IndexPage = () => {
     return (
         <div>
             index page
@@ -8,4 +6,4 @@ const Page = () => {
     );
 };
 
-export default Page;
+export default IndexPage;

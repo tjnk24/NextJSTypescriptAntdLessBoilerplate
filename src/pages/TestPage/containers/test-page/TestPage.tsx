@@ -5,9 +5,9 @@ import {useSelector} from 'react-redux';
 import {testGlobalCounterCountSelector} from '__selectors/testGlobalCounterSelectors';
 import {commonActions} from '__store/actions';
 
-import {container, test} from './Page.module.less';
+import {container, test} from './TestPage.module.less';
 
-const Page = () => {
+const TestPage = () => {
     const globalCount = useSelector(testGlobalCounterCountSelector);
 
     const onIncrementClick = () => {
@@ -43,4 +43,4 @@ const Page = () => {
     );
 };
 
-export default Page;
+export default TestPage;

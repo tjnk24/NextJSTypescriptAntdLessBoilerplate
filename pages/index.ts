@@ -1,1 +1,1 @@
-export {default} from '__pages/Index';
+export {default} from '__pages/IndexPage';

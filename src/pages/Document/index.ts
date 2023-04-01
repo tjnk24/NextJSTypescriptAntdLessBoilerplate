@@ -1,1 +1,1 @@
-export {default} from './containers/page';
+export {default} from './containers/document';
