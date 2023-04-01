@@ -16,6 +16,13 @@ module.exports = {
     "max-line-length": 150,
     "property-no-vendor-prefix": null,
     "declaration-block-trailing-semicolon": "always",
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ],
+    "import-notation": "string",
   },
   ignoreFiles: [
     'build/**'

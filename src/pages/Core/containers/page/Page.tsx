@@ -1,18 +1,27 @@
 import type {AppProps} from 'next/app';
 import {Provider} from 'react-redux';
 
-import {wrapper} from '__store/configureStore';
+import {wrapper as storeWrapper} from '__store/configureStore';
 
+import Preloader from '../preloader';
 import TopNavigation from '../top-navigation';
 
+import {corePage, wrapper} from './Page.module.less';
+
 const Page = ({Component, ...propsRest}: AppProps) => {
-    const {props, store} = wrapper.useWrappedStore(propsRest);
+    const {props, store} = storeWrapper.useWrappedStore(propsRest);
 
     return (
         <Provider store={store}>
-            <TopNavigation/>
+            <div className={corePage}>
+                <TopNavigation/>
 
-            <Component {...props.pageProps}/>
+                <div className={wrapper}>
+                    <Preloader/>
+
+                    <Component {...props.pageProps}/>
+                </div>
+            </div>
         </Provider>
     );
 };

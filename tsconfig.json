@@ -36,6 +36,7 @@
       "__selectors/*": ["./src/selectors/*"],
       "__routes": ["./src/routes.ts"],
       "__config": ["./src/config.ts"],
+      "__less/*": ["./src/less/*"],
     },
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
