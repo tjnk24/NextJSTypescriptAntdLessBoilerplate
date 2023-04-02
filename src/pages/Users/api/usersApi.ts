@@ -5,7 +5,7 @@ import {UsersApiQueryParamsGet} from './types';
 import {UsersApiGetResponse} from '../types';
 
 class UsersApi {
-    public get = (params?: UsersApiQueryParamsGet) =>
+    get = async (params?: UsersApiQueryParamsGet) =>
         configuredApiInstance.get<UsersApiGetResponse>(API_ENDPOINT, {params})
             .then(({data}) => data);
 }
