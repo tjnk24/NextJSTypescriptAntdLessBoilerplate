@@ -17,7 +17,7 @@
     "lint-fix": "eslint ./src/**/*.ts --fix & eslint ./src/**/*.tsx --fix & stylelint ./src/**/*.less --fix",
     "postinstall": "npx husky install",
     "test": "npm-run-all lint",
-    "open-browser": "start http://localhost:3000"
+    "open-browser": "start http://localhost:3000/users"
   },
   "dependencies": {
     "@ant-design/icons": "5.0.1",
