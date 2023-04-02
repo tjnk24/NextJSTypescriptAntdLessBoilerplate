@@ -1,14 +1,15 @@
 import type {AppProps} from 'next/app';
 import {Provider} from 'react-redux';
 
+import ErrorBoundary from '__components/ErrorBoundary';
 import {wrapper as storeWrapper} from '__store/configureStore';
 
 import Preloader from '../preloader';
 import TopNavigation from '../top-navigation';
 
-import {root, wrapper} from './Core.module.less';
+import {root, wrapper} from './App.module.less';
 
-const Core = ({Component, ...propsRest}: AppProps) => {
+const App = ({Component, ...propsRest}: AppProps) => {
     const {props, store} = storeWrapper.useWrappedStore(propsRest);
 
     return (
@@ -19,11 +20,13 @@ const Core = ({Component, ...propsRest}: AppProps) => {
                 <div className={wrapper}>
                     <Preloader/>
 
-                    <Component {...props.pageProps}/>
+                    <ErrorBoundary>
+                        <Component {...props.pageProps}/>
+                    </ErrorBoundary>
                 </div>
             </div>
         </Provider>
     );
 };
 
-export default Core;
+export default App;
