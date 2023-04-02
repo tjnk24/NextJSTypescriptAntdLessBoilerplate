@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "dev": "bnr start-dev",
+    "dev": "npm run open-browser && bnr start-dev",
     "build": "next build",
     "start": "next start",
     "lint": "npm-run-all lint:*",
@@ -16,7 +16,8 @@
     "lint:style": "npx stylelint **/*.less",
     "lint-fix": "eslint ./src/**/*.ts --fix & eslint ./src/**/*.tsx --fix & stylelint ./src/**/*.less --fix",
     "postinstall": "npx husky install",
-    "test": "npm-run-all lint"
+    "test": "npm-run-all lint",
+    "open-browser": "start http://localhost:3000"
   },
   "dependencies": {
     "@ant-design/icons": "5.0.1",
