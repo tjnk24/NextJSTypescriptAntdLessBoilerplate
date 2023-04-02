@@ -1,4 +1,5 @@
 import {store} from '__store/configureStore';
+import {responseErrorHandler} from '__utils/api/responseErrorHandler';
 
 import {BaseActions} from './types';
 import {AsyncRequest} from '../../types';
@@ -17,6 +18,10 @@ export const createLoader = <T>(actions: BaseActions<T>, apiRequest: AsyncReques
             return response;
         } catch (error: unknown | any) {
             store.dispatch(failed(error?.message as string));
+
+            responseErrorHandler(error);
+
+            return error;
         }
     };
 };
