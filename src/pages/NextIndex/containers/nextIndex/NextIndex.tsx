@@ -1,4 +1,4 @@
-const IndexPage = () => {
+const NextIndex = () => {
     return (
         <div>
             index page
@@ -6,4 +6,4 @@ const IndexPage = () => {
     );
 };
 
-export default IndexPage;
+export default NextIndex;

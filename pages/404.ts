@@ -1,1 +1,1 @@
-export {default} from '__pages/Page404';
+export {default} from '__pages/Next404';

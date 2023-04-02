@@ -7,9 +7,9 @@ import {wrapper as storeWrapper} from '__store/configureStore';
 import Preloader from '../preloader';
 import TopNavigation from '../top-navigation';
 
-import {root, wrapper} from './App.module.less';
+import {root, wrapper} from './NextApp.module.less';
 
-const App = ({Component, ...propsRest}: AppProps) => {
+const NextPageApp = ({Component, ...propsRest}: AppProps) => {
     const {props, store} = storeWrapper.useWrappedStore(propsRest);
 
     return (
@@ -29,4 +29,4 @@ const App = ({Component, ...propsRest}: AppProps) => {
     );
 };
 
-export default App;
+export default NextPageApp;

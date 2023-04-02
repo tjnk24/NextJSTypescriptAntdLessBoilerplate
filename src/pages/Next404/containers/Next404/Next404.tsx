@@ -3,7 +3,7 @@ import React from 'react';
 
 import {routeManager} from '__utils/routing/routeManager';
 
-import {root, returnToUsersButton} from './Page404.module.less';
+import {root, returnToUsersButton} from './Next404.module.less';
 
 const Page404 = () => {
     const onReturnToUsersClick = () => {

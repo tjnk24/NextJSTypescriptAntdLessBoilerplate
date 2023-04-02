@@ -1,1 +1,1 @@
-export {default} from '__pages/Document';
+export {default} from '__pages/NextDocument';

@@ -1,3 +1,3 @@
 import '__less/main.less';
 
-export {default} from '__pages/App';
+export {default} from '__pages/NextApp';

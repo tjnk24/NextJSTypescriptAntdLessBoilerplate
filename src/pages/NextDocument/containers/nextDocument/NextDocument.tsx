@@ -5,7 +5,7 @@ import {
     NextScript,
 } from 'next/document';
 
-const Document = () => {
+const NextDocument = () => {
     return (
         <Html lang="en">
             <Head/>
@@ -19,4 +19,4 @@ const Document = () => {
     );
 };
 
-export default Document;
+export default NextDocument;
