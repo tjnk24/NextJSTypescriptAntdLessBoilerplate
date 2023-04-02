@@ -7,6 +7,7 @@ const development = process.env.NODE_ENV !== 'production';
 
 module.exports = withLess({
     reactStrictMode: true,
+    poweredByHeader: false,
     lessLoaderOptions: {
         lessOptions: {
             javascriptEnabled: true,
