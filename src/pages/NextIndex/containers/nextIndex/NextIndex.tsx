@@ -1,8 +1,10 @@
+import HeadLayout from '__components/HeadLayout';
+
 const NextIndex = () => {
     return (
-        <div>
+        <HeadLayout title="Index Page">
             index page
-        </div>
+        </HeadLayout>
     );
 };
 

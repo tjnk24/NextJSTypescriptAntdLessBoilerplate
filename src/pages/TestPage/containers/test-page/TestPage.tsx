@@ -2,6 +2,7 @@ import {MinusOutlined, PlusOutlined} from '@ant-design/icons';
 import {Typography, Button} from 'antd';
 import {useSelector} from 'react-redux';
 
+import HeadLayout from '__components/HeadLayout';
 import {testGlobalCounterCountSelector} from '__selectors/testGlobalCounterSelectors';
 import {commonActions} from '__store/actions';
 
@@ -19,7 +20,7 @@ const TestPage = () => {
     };
 
     return (
-        <>
+        <HeadLayout title="Test Page">
             <div>
                 <Typography.Text>
                     Global Count: {globalCount}
@@ -39,7 +40,7 @@ const TestPage = () => {
             <div className={container}>
                 <span className={test}>test page</span>
             </div>
-        </>
+        </HeadLayout>
     );
 };
 

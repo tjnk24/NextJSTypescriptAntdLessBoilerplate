@@ -1,6 +1,8 @@
 import {Button, Table} from 'antd';
 import {useSelector} from 'react-redux';
 
+import HeadLayout from '__components/HeadLayout';
+
 import {COLUMNS} from './consts';
 import {usersTableDataLoader} from '../../loaders/usersTableDataLoader';
 import {tableDataIsPendingSelector, tableDataSelector} from '../../selectors';
@@ -11,20 +13,22 @@ const Users = () => {
     const tableDataIsPending = useSelector(tableDataIsPendingSelector);
 
     return (
-        <div>
-            <Button onClick={usersTableDataLoader}>
-                Reload table
-            </Button>
+        <HeadLayout title="Users">
+            <div>
+                <Button onClick={usersTableDataLoader}>
+                    Reload table
+                </Button>
 
-            <Table<UserDto>
-                dataSource={tableData}
-                loading={tableDataIsPending}
-                rowKey={({id}) => id}
-                columns={COLUMNS}
-                pagination={false}
-                scroll={{x: true}}
-            />
-        </div>
+                <Table<UserDto>
+                    dataSource={tableData}
+                    loading={tableDataIsPending}
+                    rowKey={({id}) => id}
+                    columns={COLUMNS}
+                    pagination={false}
+                    scroll={{x: true}}
+                />
+            </div>
+        </HeadLayout>
     );
 };
 
