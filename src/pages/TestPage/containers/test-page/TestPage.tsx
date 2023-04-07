@@ -6,6 +6,7 @@ import EnhancedButton from '__components/EnhancedButton';
 import HeadLayout from '__components/HeadLayout';
 import {testGlobalCounterCountSelector} from '__selectors/testGlobalCounterSelectors';
 import {commonActions} from '__store/actions';
+import {routeManager} from '__utils/routing/routeManager';
 
 import {container, test} from './TestPage.module.less';
 
@@ -45,6 +46,14 @@ const TestPage = () => {
             <div className={container}>
                 <span className={test}>test page</span>
             </div>
+
+            <EnhancedButton
+                buttonProps={{
+                    onClick: () => routeManager.goToTestPageNestedRoute(),
+                }}
+            >
+                Go to Nested Route
+            </EnhancedButton>
         </HeadLayout>
     );
 };
