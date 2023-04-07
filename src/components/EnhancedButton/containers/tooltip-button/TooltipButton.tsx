@@ -1,7 +1,8 @@
 import {Tooltip, TooltipProps} from 'antd';
 
-import {Props} from './types';
 import CommonButton from '../common-button';
+
+import {Props} from './types';
 
 const TooltipButton: Props = ({
     buttonProps,

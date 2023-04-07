@@ -1,8 +1,9 @@
 import {Popconfirm} from 'antd';
 
-import {Props} from './types';
 import {useAsyncButtonClick} from '../../hooks/useAsyncButtonClick';
 import TooltipButton from '../tooltip-button';
+
+import {Props} from './types';
 
 const PopconfirmButton: Props = ({
     buttonProps,

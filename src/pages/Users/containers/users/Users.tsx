@@ -4,10 +4,11 @@ import {useSelector} from 'react-redux';
 import EnhancedButton from '__components/EnhancedButton';
 import HeadLayout from '__components/HeadLayout';
 
-import {COLUMNS} from './consts';
 import {usersTableDataLoader} from '../../loaders/usersTableDataLoader';
 import {tableDataIsPendingSelector, tableDataSelector} from '../../selectors';
 import {UserDto} from '../../types';
+
+import {COLUMNS} from './consts';
 
 const Users = () => {
     const tableData = useSelector(tableDataSelector);

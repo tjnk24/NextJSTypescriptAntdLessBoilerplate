@@ -1,7 +1,8 @@
-import {Props} from './types';
 import CommonButton from '../common-button';
 import PopconfirmButton from '../popconfirm-button';
 import TooltipButton from '../tooltip-button';
+
+import {Props} from './types';
 
 const EnhancedButton: Props = ({
     buttonProps,

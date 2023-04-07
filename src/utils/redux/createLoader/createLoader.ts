@@ -1,8 +1,9 @@
 import {store} from '__store/configureStore';
 import {responseErrorHandler} from '__utils/api/responseErrorHandler';
 
-import {BaseActions} from './types';
 import {AsyncRequest} from '../../types';
+
+import {BaseActions} from './types';
 
 export const createLoader = <T>(actions: BaseActions<T>, apiRequest: AsyncRequest<T>) => {
     const {pending, success, failed} = actions;

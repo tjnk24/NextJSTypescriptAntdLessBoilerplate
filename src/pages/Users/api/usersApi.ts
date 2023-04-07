@@ -1,8 +1,9 @@
 import {configuredApiInstance} from '__utils/api/apiTransport';
 
+import {UsersApiGetResponse} from '../types';
+
 import {API_ENDPOINT} from './consts';
 import {UsersApiQueryParamsGet} from './types';
-import {UsersApiGetResponse} from '../types';
 
 class UsersApi {
     get = async (params?: UsersApiQueryParamsGet) =>

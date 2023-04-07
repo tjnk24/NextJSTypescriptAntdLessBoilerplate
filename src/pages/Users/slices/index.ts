@@ -1,7 +1,8 @@
 import {bindActions} from '__store/storeService';
 
-import {tableDataSlice} from './tableDataSlice';
 import {USERS_TABLE_DATA} from '../consts';
+
+import {tableDataSlice} from './tableDataSlice';
 
 export const reducers = {
     [USERS_TABLE_DATA]: tableDataSlice.reducer,

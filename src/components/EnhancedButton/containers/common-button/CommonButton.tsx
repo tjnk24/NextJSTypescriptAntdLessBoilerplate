@@ -1,7 +1,9 @@
 import {Button} from 'antd';
+import React from 'react';
+
+import {useAsyncButtonClick} from '../../hooks/useAsyncButtonClick';
 
 import {Props} from './types';
-import {useAsyncButtonClick} from '../../hooks/useAsyncButtonClick';
 
 const CommonButton: Props = props => {
     const {handleClick, isPending} = useAsyncButtonClick(props?.onClick);

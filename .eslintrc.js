@@ -218,7 +218,8 @@ module.exports = {
                 groups: [
                     ['builtin', 'external'],
                     'internal',
-                    ['parent', 'sibling'],
+                    'parent',
+                    'sibling',
                     'index',
                 ],
                 pathGroups: [
@@ -251,6 +252,17 @@ module.exports = {
                     caseInsensitive: true,
                 },
                 'newlines-between': 'always',
+            },
+        ],
+        'no-restricted-imports': [
+            'error',
+            {
+                'paths': [
+                    {
+                        'name': 'lodash',
+                        'message': 'Use "import utilName from \'lodash/utilName\'" instead',
+                    },
+                ],
             },
         ],
     },
