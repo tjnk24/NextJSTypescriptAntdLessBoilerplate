@@ -1,7 +1,8 @@
 import {MinusOutlined, PlusOutlined} from '@ant-design/icons';
-import {Typography, Button} from 'antd';
+import {Typography} from 'antd';
 import {useSelector} from 'react-redux';
 
+import EnhancedButton from '__components/EnhancedButton';
 import HeadLayout from '__components/HeadLayout';
 import {testGlobalCounterCountSelector} from '__selectors/testGlobalCounterSelectors';
 import {commonActions} from '__store/actions';
@@ -26,14 +27,18 @@ const TestPage = () => {
                     Global Count: {globalCount}
                 </Typography.Text>
 
-                <Button
-                    onClick={onIncrementClick}
-                    icon={<PlusOutlined/>}
+                <EnhancedButton
+                    buttonProps={{
+                        onClick: onIncrementClick,
+                        icon: <PlusOutlined/>,
+                    }}
                 />
 
-                <Button
-                    onClick={onDecrementClick}
-                    icon={<MinusOutlined/>}
+                <EnhancedButton
+                    buttonProps={{
+                        onClick: onDecrementClick,
+                        icon: <MinusOutlined/>,
+                    }}
                 />
             </div>
 

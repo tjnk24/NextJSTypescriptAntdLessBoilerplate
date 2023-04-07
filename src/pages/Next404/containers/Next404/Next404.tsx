@@ -1,6 +1,6 @@
-import {Button} from 'antd';
 import React from 'react';
 
+import EnhancedButton from '__components/EnhancedButton';
 import HeadLayout from '__components/HeadLayout';
 import {routeManager} from '__utils/routing/routeManager';
 
@@ -16,12 +16,14 @@ const Page404 = () => {
             <div className={root}>
                 Not Found
 
-                <Button
-                    className={returnToUsersButton}
-                    onClick={onReturnToUsersClick}
+                <EnhancedButton
+                    buttonProps={{
+                        className: returnToUsersButton,
+                        onClick: onReturnToUsersClick,
+                    }}
                 >
                     Return to users page
-                </Button>
+                </EnhancedButton>
             </div>
         </HeadLayout>
     );

@@ -1,6 +1,7 @@
-import {Button, Table} from 'antd';
+import {Table} from 'antd';
 import {useSelector} from 'react-redux';
 
+import EnhancedButton from '__components/EnhancedButton';
 import HeadLayout from '__components/HeadLayout';
 
 import {COLUMNS} from './consts';
@@ -15,9 +16,13 @@ const Users = () => {
     return (
         <HeadLayout title="Users">
             <div>
-                <Button onClick={usersTableDataLoader}>
+                <EnhancedButton
+                    buttonProps={{
+                        onClick: usersTableDataLoader,
+                    }}
+                >
                     Reload table
-                </Button>
+                </EnhancedButton>
 
                 <Table<UserDto>
                     dataSource={tableData}
