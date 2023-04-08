@@ -14,6 +14,9 @@ module.exports = withLess({
         },
         sourceMap: true,
     },
+    devIndicators: {
+        buildActivity: false,
+    },
     webpack: config => {
         config.plugins.push(
             new LodashWebpackPlugin({
