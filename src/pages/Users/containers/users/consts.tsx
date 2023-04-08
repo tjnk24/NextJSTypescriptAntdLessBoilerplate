@@ -1,6 +1,5 @@
 import {Typography} from 'antd';
 import {ColumnsType} from 'antd/lib/table';
-import React from 'react';
 
 import {makeTypedName} from '__utils/makeTypedName';
 

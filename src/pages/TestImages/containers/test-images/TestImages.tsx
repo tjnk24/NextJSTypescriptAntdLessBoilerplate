@@ -1,6 +1,5 @@
 import {Typography} from 'antd';
 import Image from 'next/image';
-import React from 'react';
 
 import HeadLayout from '__components/HeadLayout';
 

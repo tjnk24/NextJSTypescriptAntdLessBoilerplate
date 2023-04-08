@@ -1,6 +1,5 @@
 import {Menu} from 'antd';
 import {useRouter} from 'next/router';
-import React from 'react';
 
 import {MENU_ITEMS} from './consts';
 

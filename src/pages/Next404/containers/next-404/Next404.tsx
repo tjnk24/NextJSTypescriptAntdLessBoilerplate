@@ -1,12 +1,10 @@
-import React from 'react';
-
 import EnhancedButton from '__components/EnhancedButton';
 import HeadLayout from '__components/HeadLayout';
 import {routeManager} from '__utils/routing/routeManager';
 
 import {root, returnToUsersButton} from './Next404.module.less';
 
-const Page404 = () => {
+const Next404 = () => {
     const onReturnToUsersClick = () => {
         routeManager.goToUsers();
     };
@@ -29,4 +27,4 @@ const Page404 = () => {
     );
 };
 
-export default Page404;
+export default Next404;

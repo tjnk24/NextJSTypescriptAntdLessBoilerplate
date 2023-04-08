@@ -1,1 +1,1 @@
-export {default} from './containers/Next404';
+export {default} from './containers/next-404';

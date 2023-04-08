@@ -1,1 +1,1 @@
-export {default} from './containers/nextApp';
+export {default} from './containers/next-app';

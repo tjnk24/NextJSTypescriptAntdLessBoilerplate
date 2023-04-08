@@ -4,16 +4,19 @@ import {Provider} from 'react-redux';
 import ErrorBoundary from '__components/ErrorBoundary';
 import {wrapper as storeWrapper} from '__store/configureStore';
 
+import GlobalHead from '../global-head';
 import Preloader from '../preloader';
 import TopNavigation from '../top-navigation';
 
 import {root, wrapper} from './NextApp.module.less';
 
-const NextPageApp = ({Component, ...propsRest}: AppProps) => {
+const NextApp = ({Component, ...propsRest}: AppProps) => {
     const {props, store} = storeWrapper.useWrappedStore(propsRest);
 
     return (
         <Provider store={store}>
+            <GlobalHead/>
+
             <div className={root}>
                 <TopNavigation/>
 
@@ -29,4 +32,4 @@ const NextPageApp = ({Component, ...propsRest}: AppProps) => {
     );
 };
 
-export default NextPageApp;
+export default NextApp;

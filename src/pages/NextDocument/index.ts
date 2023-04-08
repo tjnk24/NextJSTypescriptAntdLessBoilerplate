@@ -1,1 +1,1 @@
-export {default} from './containers/nextDocument';
+export {default} from './containers/next-document';

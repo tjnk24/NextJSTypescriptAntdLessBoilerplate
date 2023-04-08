@@ -1,12 +1,12 @@
 import {Typography} from 'antd';
-import React from 'react';
+import {PureComponent} from 'react';
 
 import EnhancedButton from '__components/EnhancedButton';
 import {ROUTES} from '__routes';
 
 import {Props, State} from './types';
 
-export default class ErrorBoundary extends React.PureComponent<Props, State> {
+export default class ErrorBoundary extends PureComponent<Props, State> {
     public state: State = {
         error: null,
         errorInfo: null,
