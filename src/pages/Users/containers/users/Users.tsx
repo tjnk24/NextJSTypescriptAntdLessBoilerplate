@@ -10,6 +10,8 @@ import {UserDto} from '../../types';
 
 import {COLUMNS} from './consts';
 
+import {reloadButton} from './Users.module.less';
+
 const Users = () => {
     const tableData = useSelector(tableDataSelector);
     const tableDataIsPending = useSelector(tableDataIsPendingSelector);
@@ -19,6 +21,7 @@ const Users = () => {
             <div>
                 <EnhancedButton
                     buttonProps={{
+                        className: reloadButton,
                         onClick: usersTableDataLoader,
                     }}
                 >

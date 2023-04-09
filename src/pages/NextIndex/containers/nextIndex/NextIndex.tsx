@@ -1,9 +1,13 @@
+import {Typography} from 'antd';
+
 import HeadLayout from '__components/HeadLayout';
 
 const NextIndex = () => {
     return (
         <HeadLayout title="Index Page">
-            index page
+            <Typography.Text>
+                Index page
+            </Typography.Text>
         </HeadLayout>
     );
 };

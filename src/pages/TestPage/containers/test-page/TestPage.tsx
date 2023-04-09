@@ -8,7 +8,7 @@ import {testGlobalCounterCountSelector} from '__selectors/testGlobalCounterSelec
 import {commonActions} from '__store/actions';
 import {routeManager} from '__utils/routing/routeManager';
 
-import {container, test} from './TestPage.module.less';
+import {container} from './TestPage.module.less';
 
 const TestPage = () => {
     const globalCount = useSelector(testGlobalCounterCountSelector);
@@ -23,7 +23,11 @@ const TestPage = () => {
 
     return (
         <HeadLayout title="Test Page">
-            <div>
+            <Typography.Title level={3}>
+                Testing Global Reducer
+            </Typography.Title>
+
+            <div className={container}>
                 <Typography.Text>
                     Global Count: {globalCount}
                 </Typography.Text>
@@ -41,10 +45,6 @@ const TestPage = () => {
                         icon: <MinusOutlined/>,
                     }}
                 />
-            </div>
-
-            <div className={container}>
-                <span className={test}>test page</span>
             </div>
 
             <EnhancedButton
