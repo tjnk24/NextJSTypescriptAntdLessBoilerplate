@@ -1,9 +1,9 @@
-import {PureComponent} from 'react';
+import {ComponentType, PureComponent} from 'react';
 
 import {CreateOnLoadComponentParams} from './types';
 
 export const onLoadComponent = ({onLoad, onDispose}: CreateOnLoadComponentParams) => {
-    return (Component: React.ComponentType) => {
+    return (Component: ComponentType) => {
 
         class OnLoadComponent extends PureComponent {
             componentDidMount() {

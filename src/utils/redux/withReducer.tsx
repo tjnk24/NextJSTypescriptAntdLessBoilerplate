@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import {ComponentType, useEffect} from 'react';
 
 import reducerRegistry from '__store/reducerRegistry';
 import {RegistryReducers} from '__store/reducerRegistry/types';
@@ -6,7 +6,7 @@ import {RegistryReducers} from '__store/reducerRegistry/types';
 import {ServerSideProps} from '../../store/types';
 
 export const withReducer = <T,>(
-    Component: React.ComponentType<ServerSideProps<T>>,
+    Component: ComponentType<ServerSideProps<T>>,
     reducers: RegistryReducers,
     onSuccess?: (props: ServerSideProps<T>) => void,
 ) => {
