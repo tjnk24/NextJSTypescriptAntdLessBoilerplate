@@ -262,6 +262,11 @@ module.exports = {
                         'name': 'lodash',
                         'message': 'Use "import utilName from \'lodash/utilName\'" instead',
                     },
+                    {
+                        'name': 'react',
+                        'importNames': ['default'],
+                        'message': 'No import React from \'react\' in NextJS',
+                    },
                 ],
             },
         ],
