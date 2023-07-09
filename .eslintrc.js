@@ -37,7 +37,7 @@ module.exports = {
         'next/core-web-vitals',
     ],
     rules: {
-    // Code Style
+        // Code Style
         'arrow-parens': ['error', 'as-needed'],
         camelcase: 0,
         'class-methods-use-this': 0,
