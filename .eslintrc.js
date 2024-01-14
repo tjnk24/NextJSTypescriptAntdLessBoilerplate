@@ -33,7 +33,6 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'plugin:jsx-a11y/recommended',
-        'react-app',
         'next/core-web-vitals',
     ],
     rules: {

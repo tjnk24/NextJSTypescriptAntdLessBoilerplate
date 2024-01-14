@@ -4,7 +4,7 @@ export interface Error400Response {
 
 export type CustomErrors = {
     [key: number]: {
-        action: (error: unknown | any) => void;
+        action: (error: any) => void;
     };
 }
 
