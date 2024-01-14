@@ -7,7 +7,7 @@ import {
     ResponseErrorhandlerOptions,
 } from './types';
 
-const makeDefaultErrorsActions = (error: unknown | any): CustomErrors => ({
+const makeDefaultErrorsActions = (error: any): CustomErrors => ({
     400: {
         action: async () => {
             const {message} = await error.json() as Error400Response;
@@ -20,7 +20,7 @@ const makeDefaultErrorsActions = (error: unknown | any): CustomErrors => ({
     },
 });
 
-export const responseErrorHandler = (error: unknown | any, options?: ResponseErrorhandlerOptions) => {
+export const responseErrorHandler = (error: any, options?: ResponseErrorhandlerOptions) => {
     if (error instanceof AxiosError) {
         const {customErrors} = options || {};
 

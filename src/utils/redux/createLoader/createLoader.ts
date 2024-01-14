@@ -17,7 +17,7 @@ export const createLoader = <T>(actions: BaseActions<T>, apiRequest: AsyncReques
             store.dispatch(success(response));
 
             return response;
-        } catch (error: unknown | any) {
+        } catch (error: any) {
             store.dispatch(failed(error?.message as string));
 
             responseErrorHandler(error);
