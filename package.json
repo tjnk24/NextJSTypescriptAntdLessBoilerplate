@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "dev": "npm run open-browser && bnr start-dev",
+    "dev": "dotenv npm run open-browser && bnr start-dev",
     "build": "next build",
     "start": "next start",
     "lint": "npm-run-all lint:*",
@@ -17,7 +17,7 @@
     "lint-fix": "eslint ./src/**/*.ts --fix & eslint ./src/**/*.tsx --fix & stylelint ./src/**/*.less --fix",
     "postinstall": "npx husky install",
     "test": "npm-run-all lint",
-    "open-browser": "start http://localhost:3000/users"
+    "open-browser": "start http://localhost:%PORT%/users"
   },
   "dependencies": {
     "@ant-design/icons": "5.2.6",
@@ -43,6 +43,7 @@
     "@types/redux-logger": "3.0.12",
     "@typescript-eslint/eslint-plugin": "6.18.1",
     "better-npm-run": "0.1.1",
+    "dotenv-cli": "7.3.0",
     "eslint": "8.56.0",
     "eslint-config-next": "13.5.6",
     "eslint-plugin-eslint-comments": "3.2.0",
@@ -65,9 +66,10 @@
   },
   "betterScripts": {
     "start-dev": {
-      "command": "next dev",
+      "command": "next dev -p %PORT%",
       "env": {
-        "NODE_OPTIONS": "--inspect"
+        "NODE_OPTIONS": "--inspect",
+        "NODE_ENV": "development"
       }
     }
   }

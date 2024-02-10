@@ -26,8 +26,10 @@
     "isolatedModules": true,
     "incremental": true,
     "paths": {
+      "__api/*": ["./src/api/*"],
       "__pages/*": ["./src/pages/*"],
       "__components/*": ["./src/components/*"],
+      "__services/*": ["./src/services/*"],
       "__utils/*": ["./src/utils/*"],
       "__types/*": ["./src/types/*"],
       "__store/*": ["./src/store/*"],
