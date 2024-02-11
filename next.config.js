@@ -6,8 +6,11 @@ const withLess = require('next-with-less');
 const development = process.env.NODE_ENV !== 'production';
 
 module.exports = withLess({
+    output: 'standalone',
     reactStrictMode: true,
     poweredByHeader: false,
+    transpilePackages: ['antd'],
+    productionBrowserSourceMaps: true,
     lessLoaderOptions: {
         lessOptions: {
             javascriptEnabled: true,

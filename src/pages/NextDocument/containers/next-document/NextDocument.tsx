@@ -5,6 +5,8 @@ import {
     NextScript,
 } from 'next/document';
 
+import {getInitialProps} from './utils/getInitialDocument';
+
 const NextDocument = () => {
     return (
         <Html lang="en">
@@ -18,5 +20,7 @@ const NextDocument = () => {
         </Html>
     );
 };
+
+NextDocument.getInitialProps = getInitialProps;
 
 export default NextDocument;

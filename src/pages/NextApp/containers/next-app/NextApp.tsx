@@ -1,3 +1,4 @@
+import {ConfigProvider} from 'antd';
 import type {AppProps} from 'next/app';
 import {Provider} from 'react-redux';
 
@@ -12,13 +13,15 @@ const NextApp = ({Component, ...propsRest}: AppProps) => {
 
     return (
         <Provider store={store}>
-            <ErrorBoundary>
-                <GlobalHead/>
+            <ConfigProvider theme={{hashed: false}}>
+                <ErrorBoundary>
+                    <GlobalHead/>
 
-                <AppLayout>
-                    <Component {...props.pageProps}/>
-                </AppLayout>
-            </ErrorBoundary>
+                    <AppLayout>
+                        <Component {...props.pageProps}/>
+                    </AppLayout>
+                </ErrorBoundary>
+            </ConfigProvider>
         </Provider>
     );
 };

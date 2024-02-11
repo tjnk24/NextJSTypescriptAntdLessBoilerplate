@@ -20,6 +20,7 @@
     "open-browser": "start http://localhost:%PORT%/users"
   },
   "dependencies": {
+    "@ant-design/cssinjs": "1.18.2",
     "@ant-design/icons": "5.2.6",
     "@reduxjs/toolkit": "2.0.1",
     "antd": "5.13.0",

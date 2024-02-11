@@ -8,7 +8,7 @@ import {usersTableDataLoader} from '../../loaders/usersTableDataLoader';
 import {tableDataIsPendingSelector, tableDataSelector} from '../../selectors';
 import {UserDto} from '../../types';
 
-import {COLUMNS} from './consts';
+import {COLUMNS} from './columns';
 
 import {reloadButton} from './Users.module.less';
 

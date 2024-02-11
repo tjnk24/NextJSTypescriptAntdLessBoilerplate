@@ -5,6 +5,8 @@ import {makeTypedName} from '__utils/makeTypedName';
 
 import {UserDto} from '../../types';
 
+import {textItem} from './Users.module.less';
+
 export const COLUMNS: ColumnsType<UserDto> = [
     {
         title: 'Name',
@@ -21,7 +23,7 @@ export const COLUMNS: ColumnsType<UserDto> = [
     {
         title: 'Home address',
         render: (_, {address}) => (
-            <Typography.Text>
+            <Typography.Text className={textItem}>
                 {`${address?.city}, ${address?.street}, ${address?.zipcode}`}
             </Typography.Text>
         ),
@@ -36,6 +38,7 @@ export const COLUMNS: ColumnsType<UserDto> = [
             <Typography.Link
                 href={`https://${website}`}
                 target="_blank"
+                className={textItem}
             >
                 {website}
             </Typography.Link>
